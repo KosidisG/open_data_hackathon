@@ -74,7 +74,7 @@ def get_pollution_data():
         ar_mean = cumul / count
 
         indicator_2 = 0
-        if ar_mean > float(3):
+        if ar_mean > float(2.5):
             indicator_2 = 4
 
         pollution_indicator[key] = max(indicator, indicator_2)
