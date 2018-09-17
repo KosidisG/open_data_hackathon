@@ -5,15 +5,9 @@ import pandas as pd
 
 def get_pollution_data():
 
-
     r = requests.get("http://178.62.245.17/air/airquality.php")
 
-
     xmparsed = ET.fromstring(r.text)
-
-    import pandas as pd
-
-    import pandas as pd
 
     data = []
     for i in xmparsed[1]:
@@ -41,7 +35,7 @@ def get_pollution_data():
                 lvl += 1
 
         return (lvl + 1)
-
+    
 
     pollution_data = {}
 
@@ -50,8 +44,6 @@ def get_pollution_data():
             pollution_data[row[0]] = {}
 
         if int(row[1]) in map_dict:
-            #         print(row)
-            #         row = row.append(get_level(int(row[1]), float(row[2]), map_dict))
             pollution_data[row[0]][row[1]] = get_level(int(row[1]), float(row[2]), map_dict)
 
     pollution_indicator = {}
@@ -63,10 +55,8 @@ def get_pollution_data():
         count = 0
 
         for d, value in mappings.items():
-            #         print(maximum)
             count += 1
             cumul += int(value)
-            #         print(value)
             maximum = max(maximum, value)
 
         indicator = maximum
